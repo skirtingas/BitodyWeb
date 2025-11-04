@@ -1,9 +1,12 @@
+/* Global Styling */
+
 :root {
     --main-bg-color: #001D11;
     --main-color: #F0F8F1;
     --transparent: rgba(0,0,0,0.2);
     --light: rgba(255, 255, 255, 0.1);
     --blur-radius: 20px;
+    --font: "Kode Mono", system-ui;
 }
 
 * {
@@ -13,7 +16,7 @@
 }
 
 body {
-    font-family: "Bitcount Single", system-ui;
+    font-family: var(--font);
     background-color: var(--main-bg-color);
     color: var(--main-color);
     min-height: 100vh;
@@ -21,69 +24,19 @@ body {
     flex-direction: column;
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
-    background-color: var(--transparent);
-    color: var(--main-color);
-    box-shadow: 0 -2px 5px var(--transparent);
-    backdrop-filter: blur(var(--blur-radius));
-    -webkit-backdrop-filter: blur(var(--blur-radius));
-    margin-top: auto;
+.content {
+    padding: 40px;
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 1em;
-}
+/* 
+Component Styling
+- Buttons
+- Navbar
+- Hamburger Menu
+- Footer
+*/
 
-.button {
-    background-color: var(--transparent);
-    color: var(--main-color);
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    padding: 0.75em 1.5em;
-    text-align: center;
-    border: 3px solid var(--transparent);
-    border-radius: 0;
-    margin-top: 1.5em;
-    text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.button:hover {
-    background-color: var(--light);
-    color: var(--main-color);
-}
-
-.hero-logo {
-    width: 60vw;
-    max-width: 800px;
-    /* allow the logo to shrink smaller on narrow devices to avoid forcing horizontal scroll */
-    min-width: 160px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hero-sublogo {
-    text-align: center;
-    display: block;
-    margin-top: 1.5em;
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    max-width: 90%;
-}
-
-.home-hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    padding: 2em;
-    gap: 0.5em;
-}
-
+/* Navbar Styling */
 .navbar {
     background-color: var(--transparent);
     display: flex;
@@ -91,6 +44,8 @@ footer {
     align-items: center;
     min-height: 4em;
     padding: 15px 30px;
+    position: sticky;
+    top: 0;
     box-shadow: 0 2px 5px var(--transparent);
 }
 
@@ -108,7 +63,7 @@ footer {
     -webkit-backdrop-filter: blur(var(--blur-radius));
 }
 
-.nav-links li a {
+.nav-links li a, .nav-links li p {
     color: var(--main-color);
     text-decoration: none;
     font-size: 24px;
@@ -119,10 +74,7 @@ footer {
     font-weight: bold;
 }
 
-.content {
-    padding: 40px;
-}
-
+/* Navbar Hamburger Menu Styling */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -135,7 +87,7 @@ footer {
     height: 3px;
     background-color: var(--main-color);
     transition: all 0.3s ease;
-    border-radius: 3px;
+    border-radius: 0;
 }
 
 .hamburger.active span:nth-child(1) {
@@ -181,9 +133,41 @@ footer {
         border-top: 1px solid var(--transparent);
     }
 
-    .nav-links li a {
+    .nav-links li a, .nav-links li p {
         display: block;
         padding: 20px;
         width: 100%;
     }
+}
+
+/* Button Styling */
+.button {
+    background-color: var(--transparent);
+    color: var(--main-color);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    padding: 0.75em 1.5em;
+    text-align: center;
+    border: 3px solid var(--transparent);
+    border-radius: 0;
+    margin-top: 1.5em;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--light);
+    color: var(--main-color);
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    background-color: var(--transparent);
+    color: var(--main-color);
+    box-shadow: 0 -2px 5px var(--transparent);
+    backdrop-filter: blur(var(--blur-radius));
+    -webkit-backdrop-filter: blur(var(--blur-radius));
+    margin-top: auto;
 }

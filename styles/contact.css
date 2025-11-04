@@ -1,0 +1,47 @@
+.contact {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.contact h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin: 0.5em;
+    text-align: center;
+}
+.contact p {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    margin: 0.5em;
+    text-align: center;
+}
+
+.contact a {
+    color: var(--main-color);
+    text-decoration: underline;
+}
+
+.contact code {
+    background-color: var(--light);
+    padding: 0.2em;
+    border-radius: 0px;
+    font-family: var(--font);
+}
+
+.contact fieldset {
+    border: 3px solid var(--transparent);
+    padding: 1em;
+    margin: 0.5em auto;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact fieldset p:first-of-type {
+    margin-top: 0;
+}
+
+.contact fieldset legend {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    margin-left: 1%;
+    color: var(--main-color);
+}

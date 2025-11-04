@@ -6,8 +6,10 @@ document.querySelectorAll('code').forEach(link => {
         }
         navigator.clipboard.writeText(link.innerText);
         link.innerText = 'Copied!';
+        link.classList.add('active');
         setTimeout(() => {
             link.innerText = oldText;
+            link.classList.remove('active');
         }, 1250);
     });
 });

@@ -25,7 +25,11 @@
     padding: 0.2em;
     border-radius: 0px;
     font-family: var(--font);
-    cursor: copy;
+    cursor: pointer;
+}
+
+.contact code.active {
+    cursor: not-allowed;
 }
 
 .contact fieldset {

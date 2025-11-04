@@ -8,24 +8,24 @@
     gap: 0.5em;
 }
 
-.error-code {
-    font-size: clamp(6rem, 10vw, 8rem);
-    margin-bottom: 0;
+.error-logo {
+    width: 60vw;
+    max-width: 800px;
+    min-width: 160px;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.error-message {
+.error-sublogo {
     text-align: center;
     display: block;
-    margin: 1.5em;
-    margin-top: 0;
-    font-size: clamp(3rem, 2.5vw, 1.5rem);
+    margin-top: 1.5em;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
     max-width: 90%;
 }
 
-.hero-buttons {
+.error-buttons {
     display: flex;
     gap: 1em;
 }

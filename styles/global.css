@@ -46,7 +46,22 @@ Component Styling
     padding: 15px 30px;
     position: sticky;
     top: 0;
-    box-shadow: 0 2px 5px var(--transparent);
+    /* box-shadow: 0 2px 5px var(--transparent); */
+}
+.navbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--transparent);
+    backdrop-filter: blur(var(--blur-radius));
+    -webkit-backdrop-filter: blur(var(--blur-radius));
+    z-index: 0;
+    pointer-events: none;
+}
+
+.navbar > * {
+    position: relative;
+    z-index: 1;
 }
 
 .logo {
@@ -59,15 +74,13 @@ Component Styling
     display: flex;
     list-style: none;
     gap: 30px;
-    backdrop-filter: blur(var(--blur-radius));
-    -webkit-backdrop-filter: blur(var(--blur-radius));
 }
 
 .nav-links li a, .nav-links li p {
     color: var(--main-color);
     text-decoration: none;
     font-size: 24px;
-    transition: font-weight 0.3s ease;
+    transition: font-weight 0.1s ease;
 }
 
 .nav-links li a:hover {
@@ -112,15 +125,16 @@ Component Styling
         top: 60px;
         left: 0;
         width: 100%;
-        background-color: var(--transparent);
         flex-direction: column;
         gap: 0;
         padding: 0;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease;
+        background-color: var(--transparent);
         backdrop-filter: blur(var(--blur-radius));
         -webkit-backdrop-filter: blur(var(--blur-radius));
+        z-index: 2;
     }
 
     .nav-links.active {
@@ -131,6 +145,7 @@ Component Styling
         width: 100%;
         text-align: center;
         border-top: 1px solid var(--transparent);
+        background-color: var(--transparent);
     }
 
     .nav-links li a, .nav-links li p {

@@ -9,7 +9,7 @@
 }
 
 .error-code {
-    font-size: clamp(4rem, 10vw, 8rem);
+    font-size: clamp(6rem, 10vw, 8rem);
     margin-bottom: 0;
     display: block;
     margin-left: auto;
@@ -21,7 +21,7 @@
     display: block;
     margin: 1.5em;
     margin-top: 0;
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-size: clamp(3rem, 2.5vw, 1.5rem);
     max-width: 90%;
 }
 

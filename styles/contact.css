@@ -25,6 +25,7 @@
     padding: 0.2em;
     border-radius: 0px;
     font-family: var(--font);
+    cursor: copy;
 }
 
 .contact fieldset {

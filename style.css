@@ -59,7 +59,8 @@ footer {
 .hero-logo {
     width: 60vw;
     max-width: 800px;
-    min-width: 300px;
+    /* allow the logo to shrink smaller on narrow devices to avoid forcing horizontal scroll */
+    min-width: 160px;
     display: block;
     margin-left: auto;
     margin-right: auto;

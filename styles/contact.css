@@ -52,12 +52,12 @@
     transition: border 0.2s ease;
 }
 
-/* background blur layer, fills entire fieldset background */
+/* background blur layer, fills entire fieldset background including behind legend */
 .contact fieldset::before {
     content: "";
     position: absolute;
-    /* fill the entire fieldset area including behind the legend */
-    top: 0;
+    /* extend to top border edge to fill area behind legend */
+    top: -0.75em;
     left: 0;
     right: 0;
     bottom: 0;

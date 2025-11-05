@@ -44,6 +44,8 @@ body {
 
 .project {
     background-color: var(--transparent);
+    backdrop-filter: blur(var(--blur-radius));
+    -webkit-backdrop-filter: blur(var(--blur-radius));
     border: 3px solid var(--border-color);
     display: flex;
     flex-direction: column;

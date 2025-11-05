@@ -50,7 +50,7 @@
 }
 
 .contact fieldset:hover {
-    border: 4px solid var(--fieldset-color-after);
+    border: 3px solid var(--fieldset-color-after);
 }
 
 .contact fieldset p:first-of-type {

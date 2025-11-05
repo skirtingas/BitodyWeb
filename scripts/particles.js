@@ -35,9 +35,9 @@
   // Determine particle count based on viewport area
   function targetCount() {
     const area = state.w * state.h;
-    // Dust density: ~1 per 24k px, clamped
-    const base = Math.round(area / 24000);
-    return Math.max(70, Math.min(200, base));
+    // Larger circles: lower density ~1 per 60k px, clamped
+    const base = Math.round(area / 60000);
+    return Math.max(30, Math.min(90, base));
   }
 
   function resize() {
@@ -63,19 +63,20 @@
 
   function addDust(n) {
     for (let i = 0; i < n; i++) {
-      const size = rand(2.0, 4.6); // px, large enough to survive 5px blur
-      const vy = rand(0.02, 0.08); // downward px per ms (slow float)
-      const vx = rand(-0.03, 0.03); // slight horizontal drift
-      const alpha = rand(0.18, 0.35); // a bit stronger so blur won't erase it
-      const shape = Math.random() < 0.6 ? 'circle' : 'square';
+      const r = rand(6.0, 12.0); // radius in px (diameter 12–24px)
+      // Slightly slower drift for larger circles
+      const vy = rand(0.006, 0.02) + r * 0.0015; // px per ms
+      const vx = rand(-0.02, 0.02); // px per ms
+      // Larger circles can be a bit more transparent
+      const alphaBase = 0.18 - (r - 6) * 0.008; // ~0.18 down to ~0.13
+      const alpha = Math.max(0.10, Math.min(0.22, alphaBase + rand(-0.02, 0.02)));
       state.dust.push({
         x: rand(0, state.w),
         y: rand(-state.h, state.h),
-        size,
+        r,
         vx,
         vy,
         alpha,
-        shape,
       });
     }
   }
@@ -83,15 +84,9 @@
   function drawDust(p) {
     ctx.globalAlpha = p.alpha;
     ctx.fillStyle = '#ffffff';
-    if (p.shape === 'circle') {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size / 2, 0, Math.PI * 2);
-      ctx.fill();
-    } else {
-      // axis-aligned small square
-      const s = p.size;
-      ctx.fillRect(p.x - s / 2, p.y - s / 2, s, s);
-    }
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fill();
     ctx.globalAlpha = 1;
   }
 
@@ -107,18 +102,18 @@
       p.y += p.vy * dt;
 
       // wrap from bottom to top with slight randomization
-      if (p.y - p.size / 2 > state.h + 2) {
+      if (p.y - p.r > state.h + 2) {
         p.y = -rand(0, state.h * 0.2);
         p.x = rand(0, state.w);
-        p.size = rand(2.0, 4.6);
-        p.vy = rand(0.02, 0.08);
-        p.vx = rand(-0.03, 0.03);
-        p.alpha = rand(0.18, 0.35);
-        p.shape = Math.random() < 0.6 ? 'circle' : 'square';
+        p.r = rand(6.0, 12.0);
+        p.vy = rand(0.006, 0.02) + p.r * 0.0015;
+        p.vx = rand(-0.02, 0.02);
+        const alphaBase = 0.18 - (p.r - 6) * 0.008;
+        p.alpha = Math.max(0.10, Math.min(0.22, alphaBase + rand(-0.02, 0.02)));
       }
       // wrap horizontally if drifting off-screen
-      if (p.x < -6) p.x = state.w + 6;
-      else if (p.x > state.w + 6) p.x = -6;
+      if (p.x < -14) p.x = state.w + 14;
+      else if (p.x > state.w + 14) p.x = -14;
 
       drawDust(p);
     }

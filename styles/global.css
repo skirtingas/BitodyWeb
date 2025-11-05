@@ -30,7 +30,7 @@ body {
     flex-direction: column;
 }
 
-body > :not(.navbar):not(footer) {
+body > :not(.navbar):not(footer):not(#bg-canvas) {
     animation: fadein 1s;
 }
 
@@ -61,7 +61,7 @@ Component Styling
     padding: 15px 30px;
     position: sticky;
     top: 0;
-    z-index: 1000; /* ensure navbar stays above page content */
+    z-index: 1000;
 }
 .navbar::before {
     content: "";
@@ -208,4 +208,14 @@ footer {
     backdrop-filter: blur(var(--blur-radius));
     -webkit-backdrop-filter: blur(var(--blur-radius));
     margin-top: auto;
+}
+
+/* Background canvas (subtle particles) */
+#bg-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
 }

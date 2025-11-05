@@ -179,7 +179,7 @@ footer {
     text-align: center;
     padding: 20px;
     min-height: 4em;
-    font-size: 14px;
+    font-size: 24px;
     background-color: var(--transparent);
     color: var(--main-color);
     backdrop-filter: blur(var(--blur-radius));

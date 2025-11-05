@@ -7,6 +7,7 @@
     display: block;
     margin-top: auto;
     margin-bottom: auto;
+    z-index: -2;
 }
 
 .about h1 {
@@ -32,13 +33,14 @@
     background-color: var(--transparent);
     backdrop-filter: blur(var(--blur-radius));
     -webkit-backdrop-filter: blur(var(--blur-radius));
+    line-height: 40px;
     padding: 1em;
     margin: 0.5em auto;
     max-width: calc(100% - 2em);
     margin-left: auto;
     margin-right: auto;
     transition: border-color 0.2s ease;
-    cursor: pointer; /* whole fieldset is clickable */
+    cursor: pointer;
 }
 
 .about fieldset:hover {
@@ -85,7 +87,7 @@
 
 .about fieldset legend {
     font-size: clamp(1rem, 2.5vw, 1.5rem);
-    margin-left: 1%;
+    margin-left: 2%;
     color: var(--main-color);
     font-weight: var(--font-weight-middle);
     cursor: pointer;

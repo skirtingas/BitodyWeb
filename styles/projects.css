@@ -1,6 +1,7 @@
 :root {
-    --bg-color: rgba(0, 0, 0, 0.1);
     --bg-color-after: rgba(50,50,50,0.1);
+    --border-color: rgba(255, 255, 255, 0.2);
+    --border-color-after: rgba(255, 255, 255, 0.4);
 }
 
 body {
@@ -42,16 +43,17 @@ body {
 }
 
 .project {
-    background-color: var(--bg-color);
+    background-color: var(--transparent);
+    border: 3px solid var(--border-color);
     display: flex;
     flex-direction: column;
     padding: 16px;
     width: 100%;
-    transition: background-color 0.2s ease;
+    transition: border 0.2s ease;
 }
 
 .project:hover {
-    background-color: var(--bg-color-after);
+    border: 4px solid var(--border-color-after);
 }
 
 

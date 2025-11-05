@@ -46,11 +46,11 @@
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    transition: border-color 0.2s ease;
+    transition: border 0.2s ease;
 }
 
 .contact fieldset:hover {
-    border-color: var(--fieldset-color-after);
+    border: 4px solid var(--fieldset-color-after);
 }
 
 .contact fieldset p:first-of-type {

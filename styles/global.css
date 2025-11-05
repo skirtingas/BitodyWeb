@@ -28,6 +28,9 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+body footer:not .navbar:not {
     animation: fadein 2s;
 }
 

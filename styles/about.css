@@ -43,14 +43,14 @@
     border-color: var(--fieldset-color-after);
 }
 
-.about fieldset > :not(legend) {
-    /* Hidden by default until opened via JS */
-    display: none;
+.about .fieldset-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
 }
 
-.about fieldset.open > :not(legend) {
-    /* Reveal content when fieldset has .open */
-    display: block;
+.about fieldset.open .fieldset-content {
+    max-height: auto;
 }
 
 .about fieldset p {
@@ -69,5 +69,5 @@
     margin-left: 1%;
     color: var(--main-color);
     font-weight: var(--font-weight-middle);
-    cursor: pointer; /* indicates it can be toggled */
+    cursor: pointer;
 }

@@ -45,11 +45,13 @@
 
 .about .fieldset-content {
     max-height: 0;
+    border-left: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
 }
 
 .about fieldset.open .fieldset-content {
+    border-left: auto;
     max-height: auto;
 }
 

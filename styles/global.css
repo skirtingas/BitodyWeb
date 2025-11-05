@@ -178,10 +178,10 @@ Component Styling
 footer {
     text-align: center;
     padding: 20px;
+    min-height: 4em;
     font-size: 14px;
     background-color: var(--transparent);
     color: var(--main-color);
-    box-shadow: 0 -2px 5px var(--transparent);
     backdrop-filter: blur(var(--blur-radius));
     -webkit-backdrop-filter: blur(var(--blur-radius));
     margin-top: auto;

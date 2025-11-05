@@ -10,6 +10,6 @@ document.querySelectorAll('code').forEach(link => {
         setTimeout(() => {
             link.innerText = oldText;
             link.classList.remove('active');
-        }, 1250);
+        }, 1000);
     });
 });

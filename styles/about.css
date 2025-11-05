@@ -1,0 +1,60 @@
+:root {
+    --fieldset-color: rgba(255, 255, 255, 0.2);
+    --fieldset-color-after: rgba(255, 255, 255, 0.4);
+}
+
+.about {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.about h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin: 0.5em;
+    text-align: center;
+    font-weight: var(--font-weight-bold);
+}
+.about p {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    margin: 0.5em;
+    text-align: center;
+    font-weight: var(--font-weight-middle);
+}
+
+.about a {
+    color: var(--main-color);
+    text-decoration: underline;
+}
+
+.about pre {
+    background-color: transparent;
+    padding: 0.2em;
+    border-radius: 0;
+    font-family: var(--font);
+}
+
+.about fieldset {
+    border: 3px solid var(--fieldset-color);
+    padding: 1em;
+    margin: 0.5em auto;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: border-color 0.2s ease;
+}
+
+.about fieldset:hover {
+    border-color: var(--fieldset-color-after);
+}
+
+.about fieldset p:first-of-type {
+    margin-top: 0;
+}
+
+.about fieldset legend {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    margin-left: 1%;
+    color: var(--main-color);
+    font-weight: var(--font-weight-middle);
+}

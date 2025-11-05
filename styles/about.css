@@ -29,9 +29,8 @@
 
 .about fieldset {
     border: 3px solid var(--fieldset-color);
-    background-color: var(--transparent);
-    backdrop-filter: blur(var(--blur-radius));
-    -webkit-backdrop-filter: blur(var(--blur-radius));
+    position: relative;
+    overflow: hidden; /* clip blur strictly to border box */
     line-height: 40px;
     padding: 1em;
     margin: 0.5em auto;
@@ -40,6 +39,23 @@
     margin-right: auto;
     transition: border 0.2s ease;
     cursor: pointer;
+}
+
+/* background blur layer, clipped inside borders */
+.about fieldset::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--transparent);
+    backdrop-filter: blur(var(--blur-radius));
+    -webkit-backdrop-filter: blur(var(--blur-radius));
+    z-index: 0;
+}
+
+/* ensure content (including legend) sits above blur layer */
+.about fieldset > * {
+    position: relative;
+    z-index: 1;
 }
 
 .about fieldset:hover {
@@ -90,4 +106,6 @@
     color: var(--main-color);
     font-weight: var(--font-weight-middle);
     cursor: pointer;
+    background-color: var(--main-bg-color); /* hide blur under the legend gap */
+    padding: 0 0.25em;
 }

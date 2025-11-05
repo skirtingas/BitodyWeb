@@ -179,6 +179,8 @@ Component Styling
 /* Button Styling */
 .button {
     background-color: var(--transparent);
+    backdrop-filter: blur(var(--blur-radius));
+    -webkit-backdrop-filter: blur(var(--blur-radius));
     color: var(--main-color);
     font-size: clamp(1rem, 2.5vw, 1.5rem);
     font-weight: var(--font-weight);

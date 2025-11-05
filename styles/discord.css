@@ -1,0 +1,32 @@
+.discord-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 2em;
+    gap: 0.5em;
+}
+
+.discord-logo {
+    width: 60vw;
+    max-width: 800px;
+    min-width: 160px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.discord-sublogo {
+    text-align: center;
+    display: block;
+    margin-top: 1.5em;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    max-width: 90%;
+    font-weight: var(--font-weight-middle);
+}
+
+.discord-buttons {
+    display: flex;
+    gap: 1em;
+}

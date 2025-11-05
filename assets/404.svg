@@ -1,0 +1,20 @@
+<svg width="850" height="275" viewBox="0 0 850 275" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_66_18)">
+<path d="M200 150H250V200H200V250H150V200H0V150H50V103H100V150H150V103H100V53H150V0H200V150ZM450 50H500V100H550V150H500V200H450V250H400V200H350V150H300V100H350V50H400V0H450V50ZM800 150H850V200H800V250H750V200H600V150H650V103H700V150H750V103H700V53H750V0H800V150Z" fill="url(#paint0_linear_66_18)"/>
+</g>
+<defs>
+<filter id="filter0_d_66_18" x="0" y="0" width="850" height="275" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="25"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_66_18"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_66_18" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_66_18" x1="850" y1="0" x2="-13.191" y2="59.8949" gradientUnits="userSpaceOnUse">
+<stop stop-color="#00FF90"/>
+<stop offset="1" stop-color="#009956"/>
+</linearGradient>
+</defs>
+</svg>

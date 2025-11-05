@@ -1,0 +1,84 @@
+:root {
+    --bg-color: rgba(0, 0, 0, 0.1);
+    --bg-color-after: rgba(50,50,50,0.1);
+}
+
+body {
+    margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.projects {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.projects h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin: 0.5em;
+    text-align: center;
+    font-weight: var(--font-weight-bold);
+}
+
+.projects > p {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    margin: 0.5em;
+    text-align: center;
+    font-weight: var(--font-weight-middle);
+}
+
+.projects .list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 10px;
+    align-items: stretch;
+}
+
+.project {
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.project:hover {
+    background-color: var(--bg-color-after);
+}
+
+
+.project p {
+    text-align: left;
+    font-weight: var(--font-weight);
+}
+
+.project .title {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: var(--font-weight-bold);
+    padding-bottom: 5px;
+}
+
+.project .desc {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: var(--font-weight);
+    padding-bottom: 5px;
+}
+
+.project .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.project .buttons .button {
+    margin-top: 0;
+}

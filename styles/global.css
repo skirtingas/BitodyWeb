@@ -178,7 +178,6 @@ Component Styling
 footer {
     text-align: center;
     padding: 20px;
-    min-height: 4em;
     font-size: 24px;
     background-color: var(--transparent);
     color: var(--main-color);

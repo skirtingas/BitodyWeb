@@ -53,11 +53,6 @@
     -webkit-backdrop-filter: blur(var(--blur-radius));
 }
 
-/* ensure content (including legend) sits above background */
-.contact fieldset > * {
-    position: relative;
-}
-
 .contact fieldset:hover {
     border: 3px solid var(--fieldset-color-after);
 }

@@ -1,5 +1,5 @@
-// Subtle glowing particles background
-// Creates a fixed full-screen canvas and renders slow-moving soft glows.
+// Background rain particles
+// Creates a fixed full-screen canvas and renders crisp, subtle falling lines.
 (function () {
   const ENABLED = true;
   if (!ENABLED) return;
@@ -26,17 +26,17 @@
   const state = {
     w: 0,
     h: 0,
-    particles: [],
+    drops: [],
     lastTime: 0,
     running: !prefersReducedMotion,
   };
 
-  // Determine particle count based on viewport area
+  // Determine drop count based on viewport area
   function targetCount() {
     const area = state.w * state.h;
-    // Rough density: ~1 particle per 30k-60k pixels, clamped
-    const base = Math.round(area / 45000);
-    return Math.max(20, Math.min(80, base));
+    // Rain density: ~1 drop per 18k px, clamped to keep perf nice
+    const base = Math.round(area / 18000);
+    return Math.max(80, Math.min(220, base));
   }
 
   function resize() {
@@ -51,51 +51,41 @@
     canvas.style.height = state.h + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    // Adjust particle count smoothly
+    // Adjust drop count smoothly
     const desired = targetCount();
-    const diff = desired - state.particles.length;
-    if (diff > 0) addParticles(diff);
-    else if (diff < 0) state.particles.splice(desired);
+    const diff = desired - state.drops.length;
+    if (diff > 0) addDrops(diff);
+    else if (diff < 0) state.drops.splice(desired);
   }
-
-  // Palette: subtle cool whites
-  const COLORS = [
-    'rgba(255,255,255,0.06)',
-    'rgba(255,255,255,0.04)',
-    'rgba(255,255,255,0.03)'
-  ];
 
   function rand(min, max) { return Math.random() * (max - min) + min; }
 
-  function addParticles(n) {
+  function addDrops(n) {
     for (let i = 0; i < n; i++) {
-      const r = rand(40, 140); // radius of glow
-      const speed = rand(0.02, 0.08); // px per ms
-      const angle = rand(0, Math.PI * 2);
-      const vx = Math.cos(angle) * speed;
-      const vy = Math.sin(angle) * speed;
-      state.particles.push({
-        x: rand(-r, state.w + r),
-        y: rand(-r, state.h + r),
-        r,
-        vx,
-        vy,
-        color: COLORS[Math.floor(rand(0, COLORS.length))],
+      const len = rand(8, 22); // length of the streak
+      const speed = rand(0.18, 0.55); // vy px per ms
+      const wind = rand(-0.05, 0.05); // vx px per ms
+      const thickness = rand(0.75, 1.75);
+      const alpha = rand(0.08, 0.20);
+      state.drops.push({
+        x: rand(0, state.w),
+        y: rand(-state.h, state.h),
+        len,
+        speed,
+        wind,
+        thickness,
+        alpha
       });
     }
   }
 
-  function drawParticle(p) {
-    // Soft radial gradient glow
-    const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
-    // inner brighter, outer fades to 0
-    g.addColorStop(0, p.color);
-    g.addColorStop(0.2, p.color);
-    g.addColorStop(1, 'rgba(255,255,255,0)');
-    ctx.fillStyle = g;
+  function drawDrop(d) {
+    ctx.strokeStyle = `rgba(255,255,255,${d.alpha})`;
+    ctx.lineWidth = d.thickness;
     ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fill();
+    ctx.moveTo(d.x, d.y);
+    ctx.lineTo(d.x + d.wind * 16, d.y + d.len);
+    ctx.stroke();
   }
 
   function step(now) {
@@ -105,39 +95,41 @@
     state.lastTime = now;
 
     ctx.clearRect(0, 0, state.w, state.h);
+    ctx.lineCap = 'round';
 
-    // Blend glows additively but keep it subtle
-    ctx.globalCompositeOperation = 'lighter';
+    for (const d of state.drops) {
+      d.x += d.wind * dt;
+      d.y += d.speed * dt;
 
-    for (const p of state.particles) {
-      p.x += p.vx * dt;
-      p.y += p.vy * dt;
+      // wrap from bottom to top with slight randomization
+      if (d.y - d.len > state.h + 4) {
+        d.y = -rand(0, state.h * 0.3);
+        d.x = rand(0, state.w);
+        d.len = rand(8, 22);
+        d.speed = rand(0.18, 0.55);
+        d.wind = rand(-0.05, 0.05);
+        d.thickness = rand(0.75, 1.75);
+        d.alpha = rand(0.08, 0.20);
+      }
+      // wrap horizontally if drifting off-screen
+      if (d.x < -10) d.x = state.w + 10;
+      else if (d.x > state.w + 10) d.x = -10;
 
-      // gentle wrap-around with padding
-      const pad = p.r * 1.2;
-      if (p.x < -pad) p.x = state.w + pad;
-      else if (p.x > state.w + pad) p.x = -pad;
-      if (p.y < -pad) p.y = state.h + pad;
-      else if (p.y > state.h + pad) p.y = -pad;
-
-      drawParticle(p);
+      drawDrop(d);
     }
-
-    ctx.globalCompositeOperation = 'source-over';
     requestAnimationFrame(step);
   }
 
   // If reduced motion is preferred, render a static frame only
   function renderStatic() {
     ctx.clearRect(0, 0, state.w, state.h);
-    ctx.globalCompositeOperation = 'lighter';
-    for (const p of state.particles) drawParticle(p);
-    ctx.globalCompositeOperation = 'source-over';
+    ctx.lineCap = 'round';
+    for (const d of state.drops) drawDrop(d);
   }
 
   // Init
   resize();
-  addParticles(targetCount());
+  addDrops(targetCount());
 
   if (state.running) requestAnimationFrame(step);
   else renderStatic();

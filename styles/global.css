@@ -23,6 +23,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-weight: 300;
 }
 
 .content {
@@ -68,7 +69,7 @@ Component Styling
 .logo {
     color: var(--main-color);
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 900;
 }
 
 .nav-links {
@@ -85,7 +86,7 @@ Component Styling
 }
 
 .nav-links li a:hover {
-    font-weight: bold;
+    font-weight: 700;
 }
 
 /* Navbar Hamburger Menu Styling */
@@ -167,12 +168,13 @@ Component Styling
     border-radius: 0;
     margin-top: 1.5em;
     text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color,font-weight 0.3s ease, color 0.3s ease;
 }
 
 .button:hover {
     background-color: var(--light);
     color: var(--main-color);
+    font-weight: 500;
 }
 
 /* Footer Styling */

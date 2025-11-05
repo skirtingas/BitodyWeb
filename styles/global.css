@@ -52,6 +52,7 @@ Component Styling
     padding: 15px 30px;
     position: sticky;
     top: 0;
+    z-index: 1000; /* ensure navbar stays above page content */
 }
 .navbar::before {
     content: "";

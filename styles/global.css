@@ -3,7 +3,6 @@
 :root {
     --main-bg-color: #001D11;
     --main-color: #F0F8F1;
-    --fieldset--color: rgba(255, 255, 255, 0.2);
     --transparent: rgba(0,0,0,0.2);
     --light: rgba(255, 255, 255, 0.1);
 
@@ -53,7 +52,6 @@ Component Styling
     padding: 15px 30px;
     position: sticky;
     top: 0;
-    /* box-shadow: 0 2px 5px var(--transparent); */
 }
 .navbar::before {
     content: "";
@@ -90,6 +88,10 @@ Component Styling
     font-size: 24px;
     font-weight: var(--font-weight);
     transition: font-weight 0.2s ease;
+}
+
+.nav-links li p strong {
+    font-weight: var(--font-weight-bold);
 }
 
 .nav-links li a:hover {

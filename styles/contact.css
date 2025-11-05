@@ -1,3 +1,8 @@
+:root {
+    --fieldset-color: rgba(255, 255, 255, 0.2);
+    --fieldset-color-after: rgba(255, 255, 255, 0.4);
+}
+
 .contact {
     display: block;
     margin-top: auto;
@@ -35,12 +40,17 @@
 }
 
 .contact fieldset {
-    border: 3px solid var(--fieldset--color);
+    border: 3px solid var(--fieldset-color);
     padding: 1em;
     margin: 0.5em auto;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    transition: border-color 0.2s ease;
+}
+
+.contact fieldset:hover {
+    border-color: var(--fieldset-color-after);
 }
 
 .contact fieldset p:first-of-type {

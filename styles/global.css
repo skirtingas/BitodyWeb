@@ -3,10 +3,11 @@
 :root {
     --main-bg-color: #001D11;
     --main-color: #F0F8F1;
+    --fieldset--color: rgba(0, 0, 0, 0.4);
     --transparent: rgba(0,0,0,0.2);
     --light: rgba(255, 255, 255, 0.1);
     --blur-radius: 20px;
-    --font: "Kode Mono", system-ui;
+    --font: "Doto", system-ui;
 }
 
 * {

@@ -33,7 +33,7 @@
 }
 
 .contact fieldset {
-    border: 3px solid var(--transparent);
+    border: 3px solid var(--fieldset--color);
     padding: 1em;
     margin: 0.5em auto;
     max-width: 1200px;

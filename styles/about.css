@@ -30,6 +30,7 @@
 .about pre {
     background-color: transparent;
     padding: 0.2em;
+    margin: 0;
     border-radius: 0;
     font-family: var(--font);
 }

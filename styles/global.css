@@ -30,8 +30,8 @@ body {
     flex-direction: column;
 }
 
-body footer:not .navbar:not {
-    animation: fadein 2s;
+body > :not(.navbar):not(footer) {
+    animation: fadein 1s;
 }
 
 @keyframes fadein {

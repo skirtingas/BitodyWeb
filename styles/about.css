@@ -29,9 +29,11 @@
 
 .about fieldset {
     border: 3px solid var(--fieldset-color);
+    border-bottom: 0;
+    border-right: 0;
     padding: 1em;
     margin: 0.5em auto;
-    max-width: 1200px;
+    max-width: calc(100% - 2em);
     margin-left: auto;
     margin-right: auto;
     transition: border-color 0.2s ease;
@@ -39,6 +41,16 @@
 
 .about fieldset:hover {
     border-color: var(--fieldset-color-after);
+}
+
+.about fieldset > :not(legend) {
+    /* Hidden by default until opened via JS */
+    display: none;
+}
+
+.about fieldset.open > :not(legend) {
+    /* Reveal content when fieldset has .open */
+    display: block;
 }
 
 .about fieldset p {
@@ -57,4 +69,5 @@
     margin-left: 1%;
     color: var(--main-color);
     font-weight: var(--font-weight-middle);
+    cursor: pointer; /* indicates it can be toggled */
 }

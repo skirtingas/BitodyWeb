@@ -30,7 +30,9 @@
 .about fieldset {
     border: 3px solid var(--fieldset-color);
     position: relative;
-    /* allow blur layer to extend into the border area */
+    background-color: var(--transparent);
+    backdrop-filter: blur(var(--blur-radius));
+    -webkit-backdrop-filter: blur(var(--blur-radius));
     overflow: visible;
     line-height: 40px;
     padding: 1em;
@@ -40,25 +42,6 @@
     margin-right: auto;
     transition: border 0.2s ease;
     cursor: pointer;
-}
-
-/* background blur layer, clipped inside borders */
-.about fieldset::before {
-    content: "";
-    position: absolute;
-    /* extend into the 3px border area so blur reaches top border under legend */
-    inset: -3px;
-    background-color: var(--transparent);
-    backdrop-filter: blur(var(--blur-radius));
-    -webkit-backdrop-filter: blur(var(--blur-radius));
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* ensure content (including legend) sits above blur layer */
-.about fieldset > * {
-    position: relative;
-    z-index: 1;
 }
 
 .about fieldset:hover {

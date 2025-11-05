@@ -42,36 +42,20 @@
 .contact fieldset {
     border: 3px solid var(--fieldset-color);
     position: relative;
-    /* clip blur layer inside the border */
-    overflow: hidden;
     padding: 1em;
     margin: 0.5em auto;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     transition: border 0.2s ease;
-}
-
-/* background blur layer, fills entire fieldset background including behind legend */
-.contact fieldset::before {
-    content: "";
-    position: absolute;
-    /* extend to top border edge to fill area behind legend */
-    top: -0.75em;
-    left: 0;
-    right: 0;
-    bottom: 0;
     background-color: var(--transparent);
     backdrop-filter: blur(var(--blur-radius));
     -webkit-backdrop-filter: blur(var(--blur-radius));
-    pointer-events: none;
-    z-index: 0;
 }
 
-/* ensure content (including legend) sits above blur layer */
+/* ensure content (including legend) sits above background */
 .contact fieldset > * {
     position: relative;
-    z-index: 1;
 }
 
 .contact fieldset:hover {

@@ -42,8 +42,8 @@
 .contact fieldset {
     border: 3px solid var(--fieldset-color);
     position: relative;
-    /* allow blur layer to extend into the border area */
-    overflow: visible;
+    /* clip blur layer inside the border */
+    overflow: hidden;
     padding: 1em;
     margin: 0.5em auto;
     max-width: 1200px;
@@ -52,12 +52,15 @@
     transition: border 0.2s ease;
 }
 
-/* background blur layer, clipped inside borders */
+/* background blur layer, fills entire fieldset background */
 .contact fieldset::before {
     content: "";
     position: absolute;
-    /* extend into the 3px border area so blur reaches top border under legend */
-    inset: -3px;
+    /* fill the entire fieldset area including behind the legend */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: var(--transparent);
     backdrop-filter: blur(var(--blur-radius));
     -webkit-backdrop-filter: blur(var(--blur-radius));

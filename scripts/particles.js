@@ -63,12 +63,12 @@
 
   function addDust(n) {
     for (let i = 0; i < n; i++) {
-      const r = rand(6.0, 12.0); // radius in px (diameter 12–24px)
+      const r = rand(2.0, 5.0); // radius in px (diameter 4–10px)
       // Slower float
       const vy = rand(0.003, 0.01) + r * 0.001; // px per ms
       const vx = rand(-0.015, 0.015); // px per ms
       // Less visible (lower alpha), still readable under blur
-      const alphaBase = 0.14 - (r - 6) * 0.007; // ~0.14 down to ~0.10
+      const alphaBase = 0.14 - (r - 2) * 0.007; // adjusted for smaller particles
       const alpha = Math.max(0.06, Math.min(0.16, alphaBase + rand(-0.02, 0.02)));
       state.dust.push({
         x: rand(0, state.w),
@@ -105,10 +105,10 @@
       if (p.y - p.r > state.h + 2) {
         p.y = -rand(0, state.h * 0.2);
         p.x = rand(0, state.w);
-        p.r = rand(6.0, 12.0);
+        p.r = rand(2.0, 5.0);
         p.vy = rand(0.003, 0.01) + p.r * 0.001;
         p.vx = rand(-0.015, 0.015);
-        const alphaBase = 0.14 - (p.r - 6) * 0.007;
+        const alphaBase = 0.14 - (p.r - 2) * 0.007;
         p.alpha = Math.max(0.06, Math.min(0.16, alphaBase + rand(-0.02, 0.02)));
       }
       // wrap horizontally if drifting off-screen

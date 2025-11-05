@@ -3,11 +3,17 @@
 :root {
     --main-bg-color: #001D11;
     --main-color: #F0F8F1;
-    --fieldset--color: rgba(0, 0, 0, 0.4);
+    --fieldset--color: rgba(255, 255, 255, 0.2);
     --transparent: rgba(0,0,0,0.2);
     --light: rgba(255, 255, 255, 0.1);
+
     --blur-radius: 20px;
+
     --font: "Doto", system-ui;
+    --font-weight-light: 300;
+    --font-weight: 500;
+    --font-weight-middle: 700;
+    --font-weight-bold: 900;
 }
 
 * {
@@ -68,7 +74,8 @@ Component Styling
 .logo {
     color: var(--main-color);
     font-size: 24px;
-    font-weight: 900;
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
 }
 
 .nav-links {
@@ -81,12 +88,12 @@ Component Styling
     color: var(--main-color);
     text-decoration: none;
     font-size: 24px;
-    font-weight: 300;
+    font-weight: var(--font-weight);
     transition: font-weight 0.2s ease;
 }
 
 .nav-links li a:hover {
-    font-weight: 700;
+    font-weight: var(--font-weight-middle);
 }
 
 /* Navbar Hamburger Menu Styling */
@@ -132,7 +139,7 @@ Component Styling
         padding: 0;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease;
+        transition: max-height 0.2s ease;
         background-color: var(--transparent);
         backdrop-filter: blur(var(--blur-radius));
         -webkit-backdrop-filter: blur(var(--blur-radius));
@@ -162,7 +169,7 @@ Component Styling
     background-color: var(--transparent);
     color: var(--main-color);
     font-size: clamp(1rem, 2.5vw, 1.5rem);
-    font-weight: 300;
+    font-weight: var(--font-weight);
     padding: 0.75em 1.5em;
     text-align: center;
     border: 3px solid var(--transparent);
@@ -175,7 +182,7 @@ Component Styling
 .button:hover {
     background-color: var(--light);
     color: var(--main-color);
-    font-weight: 600;
+    font-weight: var(--font-weight-bold);
 }
 
 /* Footer Styling */
@@ -183,7 +190,7 @@ footer {
     text-align: center;
     padding: 20px;
     font-size: 24px;
-    font-weight: 300;
+    font-weight: var(--font-weight);
     background-color: var(--transparent);
     color: var(--main-color);
     backdrop-filter: blur(var(--blur-radius));

@@ -66,6 +66,23 @@
     margin-top: 0;
 }
 
+.about fieldset p strong {
+    font-weight: var(--font-weight-middle);
+}
+
+.about a {
+    color: var(--main-color);
+    text-decoration: underline;
+    font-weight: var(--font-weight);
+}
+
+.about code {
+    background-color: var(--light);
+    padding: 0.2em;
+    border-radius: 0;
+    font-family: var(--font);
+}
+
 .about fieldset legend {
     font-size: clamp(1rem, 2.5vw, 1.5rem);
     margin-left: 1%;

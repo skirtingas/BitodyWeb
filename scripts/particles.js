@@ -1,5 +1,6 @@
-// Background rain particles
-// Creates a fixed full-screen canvas and renders crisp, subtle falling lines.
+// Background floating dust
+// Creates a fixed full-screen canvas and renders small circles/squares
+// drifting down slowly. Tuned to stay visible behind ~5px backdrop blur.
 (function () {
   const ENABLED = true;
   if (!ENABLED) return;
@@ -26,17 +27,17 @@
   const state = {
     w: 0,
     h: 0,
-    drops: [],
+    dust: [],
     lastTime: 0,
     running: !prefersReducedMotion,
   };
 
-  // Determine drop count based on viewport area
+  // Determine particle count based on viewport area
   function targetCount() {
     const area = state.w * state.h;
-    // Rain density: ~1 drop per 18k px, clamped to keep perf nice
-    const base = Math.round(area / 18000);
-    return Math.max(80, Math.min(220, base));
+    // Dust density: ~1 per 24k px, clamped
+    const base = Math.round(area / 24000);
+    return Math.max(70, Math.min(200, base));
   }
 
   function resize() {
@@ -51,41 +52,47 @@
     canvas.style.height = state.h + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    // Adjust drop count smoothly
+    // Adjust particle count smoothly
     const desired = targetCount();
-    const diff = desired - state.drops.length;
-    if (diff > 0) addDrops(diff);
-    else if (diff < 0) state.drops.splice(desired);
+    const diff = desired - state.dust.length;
+    if (diff > 0) addDust(diff);
+    else if (diff < 0) state.dust.splice(desired);
   }
 
   function rand(min, max) { return Math.random() * (max - min) + min; }
 
-  function addDrops(n) {
+  function addDust(n) {
     for (let i = 0; i < n; i++) {
-      const len = rand(8, 22); // length of the streak
-      const speed = rand(0.18, 0.55); // vy px per ms
-      const wind = rand(-0.05, 0.05); // vx px per ms
-      const thickness = rand(0.75, 1.75);
-      const alpha = rand(0.08, 0.20);
-      state.drops.push({
+      const size = rand(2.0, 4.6); // px, large enough to survive 5px blur
+      const vy = rand(0.02, 0.08); // downward px per ms (slow float)
+      const vx = rand(-0.03, 0.03); // slight horizontal drift
+      const alpha = rand(0.18, 0.35); // a bit stronger so blur won't erase it
+      const shape = Math.random() < 0.6 ? 'circle' : 'square';
+      state.dust.push({
         x: rand(0, state.w),
         y: rand(-state.h, state.h),
-        len,
-        speed,
-        wind,
-        thickness,
-        alpha
+        size,
+        vx,
+        vy,
+        alpha,
+        shape,
       });
     }
   }
 
-  function drawDrop(d) {
-    ctx.strokeStyle = `rgba(255,255,255,${d.alpha})`;
-    ctx.lineWidth = d.thickness;
-    ctx.beginPath();
-    ctx.moveTo(d.x, d.y);
-    ctx.lineTo(d.x + d.wind * 16, d.y + d.len);
-    ctx.stroke();
+  function drawDust(p) {
+    ctx.globalAlpha = p.alpha;
+    ctx.fillStyle = '#ffffff';
+    if (p.shape === 'circle') {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size / 2, 0, Math.PI * 2);
+      ctx.fill();
+    } else {
+      // axis-aligned small square
+      const s = p.size;
+      ctx.fillRect(p.x - s / 2, p.y - s / 2, s, s);
+    }
+    ctx.globalAlpha = 1;
   }
 
   function step(now) {
@@ -95,27 +102,25 @@
     state.lastTime = now;
 
     ctx.clearRect(0, 0, state.w, state.h);
-    ctx.lineCap = 'round';
-
-    for (const d of state.drops) {
-      d.x += d.wind * dt;
-      d.y += d.speed * dt;
+    for (const p of state.dust) {
+      p.x += p.vx * dt;
+      p.y += p.vy * dt;
 
       // wrap from bottom to top with slight randomization
-      if (d.y - d.len > state.h + 4) {
-        d.y = -rand(0, state.h * 0.3);
-        d.x = rand(0, state.w);
-        d.len = rand(8, 22);
-        d.speed = rand(0.18, 0.55);
-        d.wind = rand(-0.05, 0.05);
-        d.thickness = rand(0.75, 1.75);
-        d.alpha = rand(0.08, 0.20);
+      if (p.y - p.size / 2 > state.h + 2) {
+        p.y = -rand(0, state.h * 0.2);
+        p.x = rand(0, state.w);
+        p.size = rand(2.0, 4.6);
+        p.vy = rand(0.02, 0.08);
+        p.vx = rand(-0.03, 0.03);
+        p.alpha = rand(0.18, 0.35);
+        p.shape = Math.random() < 0.6 ? 'circle' : 'square';
       }
       // wrap horizontally if drifting off-screen
-      if (d.x < -10) d.x = state.w + 10;
-      else if (d.x > state.w + 10) d.x = -10;
+      if (p.x < -6) p.x = state.w + 6;
+      else if (p.x > state.w + 6) p.x = -6;
 
-      drawDrop(d);
+      drawDust(p);
     }
     requestAnimationFrame(step);
   }
@@ -123,13 +128,12 @@
   // If reduced motion is preferred, render a static frame only
   function renderStatic() {
     ctx.clearRect(0, 0, state.w, state.h);
-    ctx.lineCap = 'round';
-    for (const d of state.drops) drawDrop(d);
+    for (const p of state.dust) drawDust(p);
   }
 
   // Init
   resize();
-  addDrops(targetCount());
+  addDust(targetCount());
 
   if (state.running) requestAnimationFrame(step);
   else renderStatic();

@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         legend.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
             toggle();
         });
 
@@ -54,6 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (fs.classList.contains('open')) {
                 content.style.maxHeight = content.scrollHeight + 'px';
             }
+        });
+
+        fs.addEventListener('click', (e) => {
+            if (e.target && e.target.closest('a')) {
+                return;
+            }
+            toggle();
         });
     });
 });

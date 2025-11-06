@@ -66,4 +66,5 @@
     margin-left: 1%;
     color: var(--main-color);
     font-weight: var(--font-weight-middle);
+    padding: 0 5px;
 }

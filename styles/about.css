@@ -92,4 +92,5 @@
     color: var(--main-color);
     font-weight: var(--font-weight-middle);
     cursor: pointer;
+    padding: 0 5px;
 }

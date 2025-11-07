@@ -103,7 +103,8 @@
     font-size: clamp(1rem, 2.5vw, 1.5rem);
     margin-left: 2%;
     color: var(--main-color);
-    font-weight: var(--font-weight-middle);
+    font-weight: var(--font-weight-light);
     cursor: pointer;
     padding: 0 5px;
+    transition: font-weight ease 0.2s;
 }

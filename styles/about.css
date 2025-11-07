@@ -69,8 +69,8 @@
     margin-top: 0;
 }
 
-.about fieldset p strong {
-    font-weight: var(--font-weight-middle);
+.about fieldset p strong > :not(.socials) {
+    font-weight: var(--font-weight-bold);
 }
 
 .about fieldset h2 {

@@ -49,6 +49,10 @@ body > :not(.navbar):not(footer):not(#bg-canvas) {
     padding: 40px;
 }
 
+img {
+    opacity: 0.3;
+}
+
 /* 
 Component Styling
 - Buttons

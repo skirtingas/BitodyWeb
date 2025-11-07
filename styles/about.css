@@ -58,6 +58,10 @@
     max-height: auto;
 }
 
+.about fieldset.open legend {
+    font-weight: var(--font-weight-bold);
+}
+
 .about fieldset p {
     font-size: clamp(1rem, 2.5vw, 1.5rem);
     margin: 0.25em;
@@ -69,8 +73,13 @@
     margin-top: 0;
 }
 
-.about fieldset p strong > :not(.socials) {
+.about fieldset p strong {
     font-weight: var(--font-weight-bold);
+    color: rgba(0, 153, 86, 0.6);
+}
+
+.about fieldset em {
+    color: rgba(0, 153, 86, 0.5);
 }
 
 .about fieldset h2 {

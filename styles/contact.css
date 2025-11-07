@@ -1,8 +1,3 @@
-:root {
-    --fieldset-color: rgba(255, 255, 255, 0.01);
-    --fieldset-color-after: rgba(255, 255, 255, 0.03);
-}
-
 .contact {
     display: block;
     margin-top: auto;
@@ -40,21 +35,21 @@
 }
 
 .contact fieldset {
-    border: 3px solid var(--fieldset-color);
+    border: 3px solid var(--transparent);
     position: relative;
     padding: 1em;
     margin: 0.5em auto;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    transition: border 0.2s ease;
+    transition: border var(--speed) ease;
     background-color: var(--transparent);
     backdrop-filter: blur(var(--blur-radius));
     -webkit-backdrop-filter: blur(var(--blur-radius));
 }
 
 .contact fieldset:hover {
-    border: 3px solid var(--fieldset-color-after);
+    border: 3px solid var(--light);
 }
 
 .contact fieldset p:first-of-type {

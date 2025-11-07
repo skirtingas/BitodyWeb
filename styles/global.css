@@ -3,8 +3,8 @@
 :root {
     --main-bg-color: #000;
     --main-color: #FFF;
-    --transparent: rgba(255, 255, 255, 0.015);
-    --light: rgba(255, 255, 255, 0.05);
+    --transparent: rgba(255, 255, 255, 0.01);
+    --light: rgba(255, 255, 255, 0.03);
 
     --blur-radius: 5px;
 
@@ -13,6 +13,12 @@
     --font-weight: 500;
     --font-weight-middle: 700;
     --font-weight-bold: 900;
+
+    --accent-color: rgb(0, 153, 86);
+    --accent-color-t: rgba(0, 153, 86, 0.6);
+    --accent-color-t1: rgba(0, 153, 86, 0.5);
+
+    --speed: 0.1s;
 }
 
 * {
@@ -96,7 +102,7 @@ Component Styling
     text-decoration: none;
     font-size: 24px;
     font-weight: var(--font-weight);
-    transition: font-weight 0.2s ease;
+    transition: font-weight var(--speed) ease;
 }
 
 .nav-links li p strong {
@@ -150,7 +156,7 @@ Component Styling
         padding: 0;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.2s ease;
+        transition: max-height var(--speed) ease;
         backdrop-filter: blur(var(--blur-radius));
         -webkit-backdrop-filter: blur(var(--blur-radius));
         z-index: 2;
@@ -176,7 +182,6 @@ Component Styling
 
 /* Button Styling */
 .button {
-    background-color: var(--transparent);
     backdrop-filter: blur(var(--blur-radius));
     -webkit-backdrop-filter: blur(var(--blur-radius));
     color: var(--main-color);
@@ -188,11 +193,11 @@ Component Styling
     border-radius: 0;
     margin-top: 1.5em;
     text-decoration: none;
-    transition: background-color 0.2s ease, color 0.2s ease, font-weight 0.2s ease;
+    transition: border-color var(--speed) ease, color var(--speed) ease, font-weight var(--speed) ease;
 }
 
 .button:hover {
-    background-color: var(--light);
+    border-color: var(--light);
     color: var(--main-color);
     font-weight: var(--font-weight-bold);
 }

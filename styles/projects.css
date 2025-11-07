@@ -1,9 +1,3 @@
-:root {
-    --bg-color-after: rgba(50,50,50,0.1);
-    --border-color: rgba(255, 255, 255, 0.01);
-    --border-color-after: rgba(255, 255, 255, 0.03);
-}
-
 body {
     margin: 0;
 }
@@ -46,16 +40,16 @@ body {
     background-color: var(--transparent);
     backdrop-filter: blur(var(--blur-radius));
     -webkit-backdrop-filter: blur(var(--blur-radius));
-    border: 3px solid var(--border-color);
+    border: 3px solid var(--transparent);
     display: flex;
     flex-direction: column;
     padding: 16px;
     width: 100%;
-    transition: border 0.2s ease;
+    transition: border var(--speed) ease;
 }
 
 .project:hover {
-    border: 3px solid var(--border-color-after);
+    border: 3px solid var(--light);
 }
 
 

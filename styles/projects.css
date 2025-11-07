@@ -1,7 +1,7 @@
 :root {
     --bg-color-after: rgba(50,50,50,0.1);
-    --border-color: rgba(255, 255, 255, 0.2);
-    --border-color-after: rgba(255, 255, 255, 0.4);
+    --border-color: rgba(255, 255, 255, 0.01);
+    --border-color-after: rgba(255, 255, 255, 0.03);
 }
 
 body {

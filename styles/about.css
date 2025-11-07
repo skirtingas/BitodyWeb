@@ -1,6 +1,6 @@
 :root {
-    --fieldset-color: rgba(255, 255, 255, 0.2);
-    --fieldset-color-after: rgba(255, 255, 255, 0.4);
+    --fieldset-color: rgba(255, 255, 255, 0.01);
+    --fieldset-color-after: rgba(255, 255, 255, 0.03);
 }
 
 .about {

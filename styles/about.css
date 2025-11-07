@@ -73,6 +73,10 @@
     font-weight: var(--font-weight-middle);
 }
 
+.about fieldset h2 {
+    font-weight: var(--font-weight-bold);
+}
+
 .about a {
     color: var(--main-color);
     text-decoration: underline;

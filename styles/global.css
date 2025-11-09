@@ -50,7 +50,7 @@ body > :not(.navbar):not(footer):not(#bg-canvas) {
 }
 
 img {
-    opacity: 0.3;
+    opacity: 0.5;
 }
 
 /* 
@@ -217,14 +217,4 @@ footer {
     backdrop-filter: blur(var(--blur-radius));
     -webkit-backdrop-filter: blur(var(--blur-radius));
     margin-top: auto;
-}
-
-/* Background canvas (subtle particles) */
-#bg-canvas {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 0;
-    pointer-events: none;
 }

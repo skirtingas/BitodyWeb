@@ -1,56 +1,60 @@
 /* Global Styling */
 
 :root {
-    --main-bg-color: #000;
-    --main-color: #FFF;
-    --transparent: rgba(255, 255, 255, 0.01);
-    --light: rgba(255, 255, 255, 0.03);
+  --main-bg-color: #000;
+  --main-color: #fff;
+  --transparent: rgba(255, 255, 255, 0.01);
+  --light: rgba(255, 255, 255, 0.03);
 
-    --blur-radius: 5px;
+  --blur-radius: 5px;
 
-    --font: "Doto", system-ui;
-    --font-weight-light: 300;
-    --font-weight: 500;
-    --font-weight-middle: 700;
-    --font-weight-bold: 900;
+  --font: "Doto", system-ui;
+  --font-weight-light: 300;
+  --font-weight: 500;
+  --font-weight-middle: 700;
+  --font-weight-bold: 900;
 
-    --accent-color: rgb(0, 153, 86);
-    --accent-color-t: rgba(0, 153, 86, 0.6);
-    --accent-color-t1: rgba(0, 153, 86, 0.5);
+  --accent-color: rgb(0, 153, 86);
+  --accent-color-t: rgba(0, 153, 86, 0.6);
+  --accent-color-t1: rgba(0, 153, 86, 0.5);
 
-    --speed: 0.1s;
+  --speed: 0.1s;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: var(--font);
-    background-color: var(--main-bg-color);
-    color: var(--main-color);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  font-family: var(--font);
+  background-color: var(--main-bg-color);
+  color: var(--main-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 body > :not(.navbar):not(footer):not(#bg-canvas) {
-    animation: fadein 1s;
+  animation: fadein 1s;
 }
 
 @keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .content {
-    padding: 40px;
+  padding: 40px;
 }
 
 img {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 /* 
@@ -63,158 +67,161 @@ Component Styling
 
 /* Navbar Styling */
 .navbar {
-    background-color: var(--transparent);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 4em;
-    padding: 15px 30px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  background-color: var(--transparent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 4em;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 .navbar::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    backdrop-filter: blur(var(--blur-radius));
-    -webkit-backdrop-filter: blur(var(--blur-radius));
-    z-index: 0;
-    pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(var(--blur-radius));
+  -webkit-backdrop-filter: blur(var(--blur-radius));
+  z-index: 0;
+  pointer-events: none;
 }
 
 .navbar > * {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .logo a {
-    color: var(--main-color);
-    font-size: 24px;
-    font-weight: var(--font-weight-bold);
-    text-decoration: none;
+  color: var(--main-color);
+  font-size: 24px;
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
 }
 
 .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 30px;
+  display: flex;
+  list-style: none;
+  gap: 30px;
 }
 
-.nav-links li a, .nav-links li p {
-    color: var(--main-color);
-    text-decoration: none;
-    font-size: 24px;
-    font-weight: var(--font-weight);
-    transition: font-weight var(--speed) ease;
+.nav-links li a,
+.nav-links li p {
+  color: var(--main-color);
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: var(--font-weight);
+  transition: font-weight var(--speed) ease;
 }
 
 .nav-links li p strong {
-    font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
 }
 
 .nav-links li a:hover {
-    font-weight: var(--font-weight-middle);
+  font-weight: var(--font-weight-middle);
 }
 
 /* Navbar Hamburger Menu Styling */
 .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 4px;
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
 }
 
 .hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: var(--main-color);
-    transition: all 0.3s ease;
-    border-radius: 0;
+  width: 25px;
+  height: 3px;
+  background-color: var(--main-color);
+  transition: all 0.3s ease;
+  border-radius: 0;
 }
 
 .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
 .hamburger.active span:nth-child(2) {
-    opacity: 0;
+  opacity: 0;
 }
 
 .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 @media screen and (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
+  .hamburger {
+    display: flex;
+  }
 
-    .nav-links {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        gap: 0;
-        padding: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height var(--speed) ease;
-        backdrop-filter: blur(var(--blur-radius));
-        -webkit-backdrop-filter: blur(var(--blur-radius));
-        z-index: 2;
-    }
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--speed) ease;
+    backdrop-filter: blur(var(--blur-radius));
+    -webkit-backdrop-filter: blur(var(--blur-radius));
+    z-index: 2;
+  }
 
-    .nav-links.active {
-        max-height: 300px;
-    }
+  .nav-links.active {
+    max-height: 300px;
+  }
 
-    .nav-links li {
-        width: 100%;
-        text-align: center;
-        border-top: 1px solid var(--transparent);
-        background-color: var(--transparent);
-    }
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid var(--transparent);
+    background-color: var(--transparent);
+  }
 
-    .nav-links li a, .nav-links li p {
-        display: block;
-        padding: 20px;
-        width: 100%;
-    }
+  .nav-links li a,
+  .nav-links li p {
+    display: block;
+    padding: 20px;
+    width: 100%;
+  }
 }
 
 /* Button Styling */
 .button {
-    backdrop-filter: blur(var(--blur-radius));
-    -webkit-backdrop-filter: blur(var(--blur-radius));
-    color: var(--main-color);
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    font-weight: var(--font-weight);
-    padding: 0.75em 1.5em;
-    text-align: center;
-    border: 3px solid var(--transparent);
-    border-radius: 0;
-    margin-top: 1.5em;
-    text-decoration: none;
-    transition: border-color var(--speed) ease, color var(--speed) ease, font-weight var(--speed) ease;
+  backdrop-filter: blur(var(--blur-radius));
+  -webkit-backdrop-filter: blur(var(--blur-radius));
+  color: var(--main-color);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: var(--font-weight);
+  padding: 0.75em 1.5em;
+  text-align: center;
+  border: 3px solid var(--transparent);
+  border-radius: 0;
+  margin-top: 1.5em;
+  text-decoration: none;
+  transition: border-color var(--speed) ease, color var(--speed) ease,
+    font-weight var(--speed) ease;
 }
 
 .button:hover {
-    border-color: var(--light);
-    font-weight: var(--font-weight-bold);
-    color: var(--accent-color)
+  border-color: var(--light);
+  font-weight: var(--font-weight-bold);
+  color: var(--accent-color);
 }
 
 /* Footer Styling */
 footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 24px;
-    font-weight: var(--font-weight);
-    background-color: var(--transparent);
-    color: var(--main-color);
-    backdrop-filter: blur(var(--blur-radius));
-    -webkit-backdrop-filter: blur(var(--blur-radius));
-    margin-top: auto;
+  text-align: center;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: var(--font-weight);
+  background-color: var(--transparent);
+  color: var(--main-color);
+  backdrop-filter: blur(var(--blur-radius));
+  -webkit-backdrop-filter: blur(var(--blur-radius));
+  margin-top: auto;
 }

@@ -1,5 +1,5 @@
 body {
-    margin: 0;
+  margin: 0;
 }
 
 * {
@@ -7,76 +7,75 @@ body {
 }
 
 .projects {
-    display: block;
-    margin-top: auto;
-    margin-bottom: auto;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .projects h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    margin: 0.5em;
-    text-align: center;
-    font-weight: var(--font-weight-bold);
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0.5em;
+  text-align: center;
+  font-weight: var(--font-weight-bold);
 }
 
 .projects > p {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    margin: 0.5em;
-    text-align: center;
-    font-weight: var(--font-weight-middle);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  margin: 0.5em;
+  text-align: center;
+  font-weight: var(--font-weight-middle);
 }
 
 .projects .list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px 10px;
-    align-items: stretch;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 10px;
+  align-items: stretch;
 }
 
 .project {
-    background-color: var(--transparent);
-    backdrop-filter: blur(var(--blur-radius));
-    -webkit-backdrop-filter: blur(var(--blur-radius));
-    border: 3px solid var(--transparent);
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    width: 100%;
-    transition: border var(--speed) ease;
+  background-color: var(--transparent);
+  backdrop-filter: blur(var(--blur-radius));
+  -webkit-backdrop-filter: blur(var(--blur-radius));
+  border: 3px solid var(--transparent);
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  width: 100%;
+  transition: border var(--speed) ease;
 }
 
 .project:hover {
-    border: 3px solid var(--light);
+  border: 3px solid var(--light);
 }
 
-
 .project p {
-    text-align: left;
-    font-weight: var(--font-weight);
+  text-align: left;
+  font-weight: var(--font-weight);
 }
 
 .project .title {
-    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-    font-weight: var(--font-weight-bold);
-    padding-bottom: 5px;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: var(--font-weight-bold);
+  padding-bottom: 5px;
 }
 
 .project .desc {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    font-weight: var(--font-weight);
-    padding-bottom: 5px;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: var(--font-weight);
+  padding-bottom: 5px;
 }
 
 .project .buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
 }
 
 .project .buttons .button {
-    margin-top: 0;
+  margin-top: 0;
 }

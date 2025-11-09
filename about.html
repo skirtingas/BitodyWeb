@@ -1,78 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>&lt;/Bitody&gt; | About</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/styles/global.css">
-        <link rel="stylesheet" href="/styles/about.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <nav class="navbar">
-            <div class="logo"><a href="/">&lt;/Bitody&gt;</a></div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><p><strong>About</strong></p></li>
-                <li><a href="/projects">Projects</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/discord" target="_blank">Discord</a></li>
-            </ul>
-        </nav>
-        <div class="about">
-            <h1>About Me</h1>
-            <p>Information About Me, Useful Links and Other Things ;)</p>
-            <fieldset class="iamnotsteve">
-                <legend>Who am I?</legend>
-                <p>I am <strong>Bitody</strong> - or as some might know me, <strong>Skirtingas</strong>. I consider myself a <strong>chill developer</strong>, and I'm also a <strong>musician</strong>, <em>specifically a pianist</em>.</p>
-                <p>I've been playing the <strong>piano</strong> for over <strong>8 years</strong>, though I only started spending <em>serious time and energy</em> on it about <strong>2 years</strong> ago.</p>
-                <p>I'm also a big <strong>Minecraft fan</strong> and <strong>player</strong>. I enjoy <strong>PvP</strong>, but what I mostly do in Minecraft is <strong>create custom experiences</strong> for others.</p>
-                <p>I make things other people can either <strong>use</strong> or <strong>enjoy</strong>, primarily <strong>Minecraft Plugins</strong> and <strong>Servers</strong>. Currently, a project called <em>Playward</em> is on <strong>hold</strong> because I'm focusing on another project. I don't want to spoil too much about <em>Playward</em>!</p>
-                <p>Right now, as I'm building <em>this website</em>, I'm focused on learning <strong>web development</strong>.</p>
-            </fieldset>
-            <fieldset class="history">
-                <legend>My History</legend>
-                <p>My journey through online names has been quite a trip.</p>
-                <p>It all started with <strong>kitoxis</strong>, a name I used often and always found myself returning to after various changes - <em>it really stuck with me</em>.</p>
-                <p>But recently, I started looking for a name that was... <strong>different</strong>.</p>
-                <p>My first try was <strong>Kitoks</strong>. It kept the core meaning of "<strong>Different</strong>," which I liked. Sadly, my plan didn't quite work out because that name was already taken in most places.</p>
-                <p>Next, I tried <strong>Kitosk</strong>. This variant still <em>subtly meant</em> "Different" (even with the swapped letters), and it also brought in the programming language I use a lot: <strong>Skript</strong>.</p>
-                <p>However, after getting feedback from my dad, friends, and brother, it was clear that <em>Kitosk wasn't quite right</em>.</p>
-                <p>That's when I started thinking about new ideas. I looked for other Lithuanian words for "<strong>Different</strong>," since it's a unique and expressive language. And that, my friends, is how the name <strong>Skirtingas</strong> was created.</p>
-                <p>I liked that name, but after a while, <em>something clicked</em>. I realized the name only had meaning in <strong>Lithuanian</strong>, and the problem is that I mostly spend time in <strong>international/English communities</strong>.</p>
-                <p>So I started the search again and came up with <strong>Bitody</strong>. It's a <strong>simple name</strong>, with no real hidden meaning. It's just a personified <em>Bit</em> :D</p>
-                <p>Don't worry, I'm not giving up on being <strong>Skirtingas</strong> - that will simply be the name of my <em>second account</em>, which I'll mostly use for <strong>Lithuanian projects</strong>.</p>
-            </fieldset>
-            <fieldset class="starfalhistory">
-                <legend>History of Starfal</legend>
-                <p>Before it became <strong>Starfal</strong>, my project had a different name: <em>RedSRV</em>.</p>
-                <p>Originally, <strong>Starfal</strong> wasn't even meant to be a developer team; it started its life as a <strong>Minecraft server</strong> focused on the <em>BoxPVP game mode</em>.</p>
-                <p>Unfortunately, after separating from the other "Owner," my desire to keep the BoxPVP server going faded. That was the point where I switched my focus to <strong>plugin development</strong> instead.</p>
-                <p>After about a year of <em>only</em> maintaining <strong>Starfal's plugins</strong> and offering support, I realized something: I was the <strong>only active member</strong> within what was supposedly the "Developer Team."</p>
-                <p>Because of this, I decided to officially move the team's assets and projects <strong>under my sole control</strong>, as that's effectively how they had been operating anyway.</p>
-            </fieldset>
-            <fieldset class="socials">
-                <legend>Links & Socials</legend>
-                <h2>Links:</h2>
-                <p>My Discord Invite: <a href="/discord" target="_blank">bitody.net/discord</a></p>
-                <p>KasaiSora Discord: <a href="https://discord.gg/kasaisora" target="_blank">discord.gg/kasaisora</a></p>
-                <h2>Socials:</h2>
-                <p>YouTube: <a href="https://youtube.com/@Bitody" target="_blank">@Bitody</a></p>
-                <p>TikTok: <a href="https://tiktok.com/@bitody" target="_blank">@bitody</a></p>
-                <p>Discord Username: <code>@bitody</code></p>
-            </fieldset>
-        </div>
-        <footer>
-            <p>&copy; 2025 &lt;/Bitody&gt;. All rights reserved.</p>
-        </footer>
-        <script src="/scripts/hamburger.js"></script>
-        <script src="/scripts/about.js"></script>
-    </body>
+  <head>
+    <title>&lt;/Bitody&gt; | About</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="stylesheet" href="/styles/about.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo"><a href="/">&lt;/Bitody&gt;</a></div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li>
+          <p><strong>About</strong></p>
+        </li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/discord" target="_blank">Discord</a></li>
+      </ul>
+    </nav>
+    <div class="about">
+      <h1>About Me</h1>
+      <p>Information About Me, Useful Links and Other Things ;)</p>
+      <fieldset class="iamnotsteve">
+        <legend>Who am I?</legend>
+        <p>
+          I am <strong>Bitody</strong> - or as some might know me,
+          <strong>Skirtingas</strong>. I consider myself a
+          <strong>chill developer</strong>, and I'm also a
+          <strong>musician</strong>, <em>specifically a pianist</em>.
+        </p>
+        <p>
+          I've been playing the <strong>piano</strong> for over
+          <strong>8 years</strong>, though I only started spending
+          <em>serious time and energy</em> on it about
+          <strong>2 years</strong> ago.
+        </p>
+        <p>
+          I'm also a big <strong>Minecraft fan</strong> and
+          <strong>player</strong>. I enjoy <strong>PvP</strong>, but what I
+          mostly do in Minecraft is
+          <strong>create custom experiences</strong> for others.
+        </p>
+        <p>
+          I make things other people can either <strong>use</strong> or
+          <strong>enjoy</strong>, primarily
+          <strong>Minecraft Plugins</strong> and <strong>Servers</strong>.
+          Currently, a project called <em>Playward</em> is on
+          <strong>hold</strong> because I'm focusing on another project. I don't
+          want to spoil too much about <em>Playward</em>!
+        </p>
+        <p>
+          Right now, as I'm building <em>this website</em>, I'm focused on
+          learning <strong>web development</strong>.
+        </p>
+      </fieldset>
+      <fieldset class="history">
+        <legend>My History</legend>
+        <p>My journey through online names has been quite a trip.</p>
+        <p>
+          It all started with <strong>kitoxis</strong>, a name I used often and
+          always found myself returning to after various changes -
+          <em>it really stuck with me</em>.
+        </p>
+        <p>
+          But recently, I started looking for a name that was...
+          <strong>different</strong>.
+        </p>
+        <p>
+          My first try was <strong>Kitoks</strong>. It kept the core meaning of
+          "<strong>Different</strong>," which I liked. Sadly, my plan didn't
+          quite work out because that name was already taken in most places.
+        </p>
+        <p>
+          Next, I tried <strong>Kitosk</strong>. This variant still
+          <em>subtly meant</em> "Different" (even with the swapped letters), and
+          it also brought in the programming language I use a lot:
+          <strong>Skript</strong>.
+        </p>
+        <p>
+          However, after getting feedback from my dad, friends, and brother, it
+          was clear that <em>Kitosk wasn't quite right</em>.
+        </p>
+        <p>
+          That's when I started thinking about new ideas. I looked for other
+          Lithuanian words for "<strong>Different</strong>," since it's a unique
+          and expressive language. And that, my friends, is how the name
+          <strong>Skirtingas</strong> was created.
+        </p>
+        <p>
+          I liked that name, but after a while, <em>something clicked</em>. I
+          realized the name only had meaning in <strong>Lithuanian</strong>, and
+          the problem is that I mostly spend time in
+          <strong>international/English communities</strong>.
+        </p>
+        <p>
+          So I started the search again and came up with
+          <strong>Bitody</strong>. It's a <strong>simple name</strong>, with no
+          real hidden meaning. It's just a personified <em>Bit</em> :D
+        </p>
+        <p>
+          Don't worry, I'm not giving up on being <strong>Skirtingas</strong> -
+          that will simply be the name of my <em>second account</em>, which I'll
+          mostly use for <strong>Lithuanian projects</strong>.
+        </p>
+      </fieldset>
+      <fieldset class="starfalhistory">
+        <legend>History of Starfal</legend>
+        <p>
+          Before it became <strong>Starfal</strong>, my project had a different
+          name: <em>RedSRV</em>.
+        </p>
+        <p>
+          Originally, <strong>Starfal</strong> wasn't even meant to be a
+          developer team; it started its life as a
+          <strong>Minecraft server</strong> focused on the
+          <em>BoxPVP game mode</em>.
+        </p>
+        <p>
+          Unfortunately, after separating from the other "Owner," my desire to
+          keep the BoxPVP server going faded. That was the point where I
+          switched my focus to <strong>plugin development</strong> instead.
+        </p>
+        <p>
+          After about a year of <em>only</em> maintaining
+          <strong>Starfal's plugins</strong> and offering support, I realized
+          something: I was the <strong>only active member</strong> within what
+          was supposedly the "Developer Team."
+        </p>
+        <p>
+          Because of this, I decided to officially move the team's assets and
+          projects <strong>under my sole control</strong>, as that's effectively
+          how they had been operating anyway.
+        </p>
+      </fieldset>
+      <fieldset class="socials">
+        <legend>Links & Socials</legend>
+        <h2>Links:</h2>
+        <p>
+          My Discord Invite:
+          <a href="/discord" target="_blank">bitody.net/discord</a>
+        </p>
+        <p>
+          KasaiSora Discord:
+          <a href="https://discord.gg/kasaisora" target="_blank"
+            >discord.gg/kasaisora</a
+          >
+        </p>
+        <h2>Socials:</h2>
+        <p>
+          YouTube:
+          <a href="https://youtube.com/@Bitody" target="_blank">@Bitody</a>
+        </p>
+        <p>
+          TikTok:
+          <a href="https://tiktok.com/@bitody" target="_blank">@bitody</a>
+        </p>
+        <p>Discord Username: <code>@bitody</code></p>
+      </fieldset>
+    </div>
+    <footer>
+      <p>&copy; 2025 &lt;/Bitody&gt;. All rights reserved.</p>
+    </footer>
+    <script src="/scripts/hamburger.js"></script>
+    <script src="/scripts/about.js"></script>
+  </body>
 </html>
